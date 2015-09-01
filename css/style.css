@@ -1,0 +1,235 @@
+body{
+	font-family: 'Lustria', serif;
+	margin-bottom: 30px;
+}
+.navbar {
+	background-color: #8e181b;
+}
+
+.navbar-default .navbar-nav > li > a, .navbar-default .navbar-brand {
+	color: #f1f1f1;
+}
+.navbar-default .navbar-nav > li > a:hover, 
+.navbar-default .navbar-nav > li > a:focus {
+	color: #f1f1f1; 
+	background-color: #b27677;
+}
+.navbar-collapse{
+	padding-right: 10px;
+	padding-left: 10px;
+}
+
+@media only screen and (max-width: 766px) {
+	.collapsing, .in {
+		background-color: #f7f7f7; 
+	}
+	.collapsing ul li a, .in ul li a {
+		color: #555!important;
+	}
+	/*
+	.collapsing ul li a:hover, 
+	.in ul li a:hover {
+		color: #f1f1f1!important;
+	}
+	*/
+}
+
+.navbar-default .navbar-header > a:hover, .navbar-default .navbar-header > a:focus {
+    /*background-color: #FFFF00;*/
+    color: #f1f1f1;
+}
+
+.normal {
+height: 75px;
+-webkit-transition: 0.5s;
+-moz-transition: 0.5s;
+-ms-transition: 0.5s;
+transition: 0.5s;
+}
+.normal .navbar-right {
+padding-top: 12px;
+-webkit-transition: 0.5s;
+-moz-transition: 0.5s;
+-ms-transition: 0.5s;
+transition: 0.5s;
+}
+.navbar-brand {
+padding: 0px !important;
+}
+.navbar-brand img {
+max-height: 75px;
+padding-top: 5px;
+padding-bottom: 5px;
+padding-left: 5px;
+padding-right: 5px;
+-webkit-transition: 0.5s;
+-moz-transition: 0.5s;
+-ms-transition: 0.5s;
+transition: 0.5s;
+}
+.shrink {
+height: 50px;
+-webkit-transition: 0.5s;
+-moz-transition: 0.5s;
+-ms-transition: 0.5s;
+transition: 0.5s;
+}
+.shrink .navbar-right {
+padding-top: 0px;
+-webkit-transition: 0.5s;
+-moz-transition: 0.5s;
+-ms-transition: 0.5s;
+transition: 0.5s;
+}
+.shrink .navbar-brand img {
+max-height: 50px;
+-webkit-transition: 0.5s;
+-moz-transition: 0.5s;
+-ms-transition: 0.5s;
+transition: 0.5s;
+}
+/*
+.navbar-fixed-top .nav {
+    padding: 15px 0;
+}
+
+@media (max-width: 767px) { 
+    .navbar-brand {
+        padding: 0;        
+    }
+
+    .navbar-brand img {
+        margin-top: 5px;
+        margin-left: 5px;
+    }
+}
+@media (min-width:480px) {
+	.custom-menu > li > a {
+    	
+	}
+}
+.custom-menu > li > a {
+    color: white;
+}
+
+.custom-menu > li > a:hover {
+    color: grey;
+}*/
+
+/*********************************************/
+.carousel_section{
+
+	/*background-image:url('../img/image29.jpg');*/
+	/*background-repeat:no-repeat;*/
+	/*background-size:contain;*/
+	background-color: lavender;
+	position: relative;
+	margin-top: 75px;
+	/*padding-left: 20px;
+	padding-right: 20px;*/
+}
+
+/*********************************************/
+.sectionOne{
+	/*position: relative;
+	top: 70px;
+	height: 850px;*/
+}
+a:hover{
+	color: #333;
+}
+a{
+	color: #333;
+	
+}
+.main{
+	padding-top: 50px;
+}
+.main_title{
+	text-transform: uppercase;
+	position: relative;
+	border-bottom: 1px solid black;
+	padding-bottom: 1px;
+	margin-bottom: 25px;
+}
+
+.body_section .pastor_img{
+	float: left;
+}
+.body_section{
+	position: relative;
+	/*top: 200px;*/
+	background: #d5c691;
+	padding-left: 20px;
+	padding-right: 20px;
+}
+.pastor_img{
+	padding-right: 20px;
+	padding-bottom: 20px;
+}
+.pastor_title{
+	text-transform: uppercase;
+}
+.pastor_read{
+	text-transform: uppercase;
+}
+
+.row_others{
+	padding-top: 30px;
+}
+
+table{
+  	font-size: 14px;
+  	line-height: 1.42857143;
+}
+#googleMap{
+	padding-top: 20px;
+}
+hr { 
+	display: block; 
+	height: 1px;
+    border: 0; 
+    border-top: 1px solid #7f7f7f;
+    margin: 1em 0; 
+    padding: 0; 
+}
+textarea{ 
+  
+  max-width:720px; 
+
+  height:200px; 
+  min-height:200px;  
+  max-height:200px;
+}
+/*@media (min-width: 768px){
+    .navbar-nav{
+        float:none;
+        margin: 0 auto;
+        display: table;
+        table-layout: fixed;
+    }
+}*/
+
+/*********************************************/
+.footer{
+	background-color: #8e181b;	
+	color: #f1f1f1;
+	margin-left: -20px;
+	margin-right: -20px;
+	padding-top: 20px;
+	padding-bottom: 20px;
+	font-size: 12px;
+}
+.hori_list{
+	margin-top: 12px;
+	margin-left: -38px;
+}
+.hori_list ul{
+	list-style: none;
+}
+.hori_list li{
+	 display: inline;
+}
+.left_col{
+	text-align: left;
+}

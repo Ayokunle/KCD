@@ -88,10 +88,11 @@
               <h4 class="modal-title">Edit Member</h4>
             </div>
             <div class="modal-body">
-              <form class="form-horizontal" role="form" action="insert.php" method="post" autocomplete="on" style="">
+              <form id = "update" class="form-horizontal" method="POST" action ="update.php">
                 <div class="form-group">
                   <label class="control-label col-sm-2" for="fname">Firstname*:</label>
                   <div class="col-sm-4">
+                    <input type="text" name="id" class="form-control" hidden>
                     <input type="text" name="fname" class="form-control" required>
                   </div>
             
@@ -305,7 +306,7 @@
               
                 <div class="form-group"> 
                   <div class="col-sm-offset-2 col-md-10">
-                    <button  value=" Send" class="btn btn-primary" type="submit" id="submit">Submit</button>
+                    <button class="btn btn-primary" type="submit">Submit</button>
                   </div>
                 </div>
               </form>
@@ -361,6 +362,29 @@
                 data["table"]
                 );
               //alert("Form submitted successfully.\nReturned json: " + data["json"]);
+            },
+            error: function(xhr, textStatus, error){
+              console.log(xhr.statusText);
+              console.log(textStatus);
+              console.log(error);
+            }
+          });
+          return false;
+        });
+
+        $("#update").on('submit', function () {
+          var data = {"action": "test"};
+          data = $(this).serialize() + "&" + $.param(data);
+          $.ajax({
+            type: "POST",
+            dataType: "text",
+            url: "update.php", //Relative or absolute path to response.php file
+            data: data,
+            success: function(data) {
+              // $("#result").html(
+              //   data["table"]
+              //   );
+              alert("Form submitted successfully.");
             },
             error: function(xhr, textStatus, error){
               console.log(xhr.statusText);

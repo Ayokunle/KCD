@@ -22,25 +22,18 @@ function is_ajax() {
 }
 
 function test_function(){
-  
+
   $return = $_POST;
   
-  //Do what you need to do with the info. The following are some examples.
-  if ($return["favorite_beverage"] == ""){
-   $return["favorite_beverage"] = "Coke";
-  }
-  
-  $return["no_emp"] = "true";
   if(!empty($return["search_input"]) ) {
     $input = $return["search_input"];
-
-    $return["no_emp"] = "true";
 
     //$con = mysqli_connect('50.87.144.163','rccgking_kcd','kingscourt','rccgking_KCD');
     $con = mysqli_connect('userdb.netsoc.tcd.ie','ayokunle','Ohqu1eed','u_ayokunle');
     if (!$con) {
       die('Could not connect: ' . mysqli_error($con) );
     }
+    
     //mysqli_select_db($con,"rccgking_KCD");
     mysqli_select_db($con,"u_ayokunle");
     

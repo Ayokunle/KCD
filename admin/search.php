@@ -10,6 +10,7 @@
       <link href="css/style.css" rel="stylesheet">
       <link href='http://fonts.googleapis.com/css?family=Lustria' rel='stylesheet' type='text/css'>
       <link rel="icon" type="image/x-icon" href="img/favicon.ico"/>
+      <link href="http://www.jqueryscript.net/css/jquerysctipttop.css" rel="stylesheet" type="text/css">
       <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
       <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
       <!--[if lt IE 9]>
@@ -20,6 +21,29 @@
       <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
       <script src="http://code.jquery.com/jquery-1.11.0.min.js"></script>
       <script src="js/bootstrap.js"></script>
+
+      <link href="http://www.jqueryscript.net/css/jquerysctipttop.css" rel="stylesheet" type="text/css">
+      <script src="jquery.androidSpinner.js"></script>
+      <script>
+        document.addEventListener( "DOMContentLoaded", function () {
+          $( "#ajax-loader" ).ajaxLoader( {
+            lineWidth: 20,
+            top: {
+              color: "#8e181b"
+            },
+            bottom: {
+              color: "#8e181b"
+            }
+          } );
+          $( "#ajax-loader" ).hide();
+        }, false );
+      </script>
+      <style>
+        #ajax-loader {
+          width: 120px;
+          height: 120px;
+        }
+      </style>
   </head>
   <body>  
     <!-- Fixed nav bar -->
@@ -39,27 +63,32 @@
 
     <div class="container" style="background: #d5c691; padding-top: 75px; padding-bottom: 75px;">
       
-      <center><h3>Search</h3>
-
-      <form id = "search" class="form-inline" style="padding-top: 30px;" method="POST" action ="lookup.php">
-        <div class="form-group">
-          <input type="text" style="width:500px;" class="form-control" name="search_input" placeholder="Type here..." required>
+      <center>
+        <h3>Search</h3>
+        <form id = "search" class="form-inline" style="padding-top: 30px;" method="POST" action ="lookup.php">
+          <div class="form-group">
+            <input type="text" style="width:500px;" class="form-control" name="search_input" placeholder="Type here..." required>
+          </div>
+          <button type="submit" class="btn btn-info">Submit</button>
+        </form>
+        <div id="ajax-loader">
+          <!--  -->
         </div>
-        <button type="submit" class="btn btn-info">Submit</button>
-      </form>
       </center>
 
       <div id="result">
+        <!--  -->
       </div>
+
       <script type="text/javascript">
 
       function getData(data) {
-        console.log("data::");
-        var el = document.getElementById("vprofile");
+
+        console.log(data.id);
+
+        var el = document.getElementById(data.id);
         for (var i = 0; i < el.attributes.length; i++){
-            
           if(el.attributes[i].name.indexOf("data-") >= 0 ){
-            
             try{
               //console.log(el.attributes[i]);  
               var name = el.attributes[i].name.replace('data-','');
@@ -68,8 +97,8 @@
               el.attributes[i].value = el.attributes[i].value.replace(/(\r\n|\n|\r)/gm,""); 
               elem.value = el.attributes[i].value;
             }catch(err){
-              console.log(el.attributes[i]);  
-              console.log(err); 
+              //console.log(el.attributes[i]);  
+              //console.log(err); 
             }
           }
         }
@@ -92,30 +121,30 @@
                 <div class="form-group">
                   <label class="control-label col-sm-2" for="fname">Firstname*:</label>
                   <div class="col-sm-4">
-                    <input type="text" name="id" class="form-control" hidden>
+                    <input type="hidden" name="id" class="form-control">
                     <input type="text" name="fname" class="form-control" required>
                   </div>
             
-                  <label class="control-label col-sm-1" for="lname">Surname*:</label>
-                  <div class="col-sm-5">
+                  <label class="control-label col-sm-2" for="lname">Surname*:</label>
+                  <div class="col-sm-4">
                     <input type="text" name="lname" class="form-control" required>
                   </div>
                 </div>          
 
                 <div class="form-group">
                   <label class="control-label col-sm-2">Gender*:</label>
-                  <div class="col-sm-3"> 
+                  <div class="col-sm-4"> 
                     <select name="gender" class="form-control" required>
-                      <option value="" disabled selected>--</option>
+                      <option value="" disabled selected>-- Please select --</option>
                       <option value="Male">Male</option>
                       <option value="Female">Female</option>
                     </select>
                   </div>
 
                   <label class="control-label col-sm-2">Age Group*:</label>
-                  <div class="col-sm-2">
+                  <div class="col-sm-4">
                     <select name="age_group" id="age_group" class="form-control" required>
-                      <option value="" disabled selected>--</option>
+                      <option value="" disabled selected>-- Please select --</option>
                       <option value="Child">Child (0 - 12)</option>
                       <option value="Youth" >Youth (13 - 17)</option>
                       <option value="Adult">Adult (18 - 49)</option>
@@ -125,10 +154,10 @@
                 </div>
 
                 <div class="form-group">
-                  <label class="control-label col-sm-1">Status:</label>
-                  <div class="col-sm-offset-2 col-sm-10"> 
+                  <label class="control-label col-sm-2">Status:</label>
+                  <div class="col-sm-10"> 
                     <select name="status" id="status" class="form-control">
-                      <option value="">--</option>
+                      <option value="" disabled selected>-- Please select --</option>
                       <option value="Single">Single</option>
                       <option value="Single Parent" >Single Parent</option>
                       <option value="Married">Married</option>
@@ -311,9 +340,22 @@
                 </div>
               </form>
             </div>
+          </div>
+        </div>
+      </div>
 
-            <div class="modal-footer">
-              <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+      <div id="update-sub" class="modal fade" role="dialog">
+        <div class="modal-dialog">
+          <!-- Modal content-->
+          <div class="modal-content">
+            <div class="modal-header">
+              <button type="button" class="close" data-dismiss="modal">&times;</button>
+              <h4 class="modal-title">Profile Updated</h4>
+            </div>
+            <div class="modal-body">
+              <center>
+                Changes saved.
+              </center>
             </div>
           </div>
         </div>
@@ -357,7 +399,12 @@
             dataType: "json",
             url: "lookup.php", //Relative or absolute path to response.php file
             data: data,
+            beforeSend: function(){
+             // Handle the beforeSend event
+             $("#ajax-loader").show();
+            },
             success: function(data) {
+              $("#ajax-loader").slideUp();
               $("#result").html(
                 data["table"]
                 );
@@ -381,10 +428,35 @@
             url: "update.php", //Relative or absolute path to response.php file
             data: data,
             success: function(data) {
-              // $("#result").html(
-              //   data["table"]
-              //   );
-              alert("Form submitted successfully.");
+              
+              $('#GSCCModal').modal('hide');
+              $('#update-sub').modal('show');
+              var data = {"action": "test"};
+              data = $("#search").serialize() + "&" + $.param(data);
+              console.log("form data: "+  data);
+                $.ajax({
+                  type: "POST",
+                  dataType: "json",
+                  url: "lookup.php", //Relative or absolute path to response.php file
+                  data: data,
+                  beforeSend: function(){
+                    $("#ajax-loader").show();
+                    $("#result").html("");
+                  },
+                  success: function(data) {
+                    $("#ajax-loader").slideUp();
+                    console.log(data);
+                    $("#result").html(
+                      data["table"]
+                      );
+                    //alert("Form submitted successfully.\nReturned json: " + data["json"]);
+                  },
+                  error: function(xhr, textStatus, error){
+                    console.log(xhr.statusText);
+                    console.log(textStatus);
+                    console.log(error);
+                  }
+                });
             },
             error: function(xhr, textStatus, error){
               console.log(xhr.statusText);

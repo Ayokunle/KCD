@@ -150,7 +150,8 @@ function test_function(){
                   $row["dob_day"] . "/" . $row["dob_month"]. 
                   "</td>".
                   "<td style='width:5px;border:0px solid black;margin-left:0px; padding-left:5px; padding:3px;'>
-                  <button id='vprofile' 
+                  <button
+                  id=". "'". $row['id'] ."'"." 
                   type='button' 
                   onclick='getData(this)'
                   data-toggle='modal' 

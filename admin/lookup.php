@@ -30,8 +30,9 @@ function test_function(){
 
     //$con = mysqli_connect('50.87.144.163','rccgking_kcd','kingscourt','rccgking_KCD');
     $con = mysqli_connect('userdb.netsoc.tcd.ie','ayokunle','Ohqu1eed','u_ayokunle');
-    if (!$con) {
-      die('Could not connect: ' . mysqli_error($con) );
+    if (mysqli_connect_errno())
+    {
+      echo "Failed to connect to MySQL: " . mysqli_connect_error();
     }
     
     //mysqli_select_db($con,"rccgking_KCD");
@@ -112,8 +113,116 @@ function test_function(){
                     type, contact1, contact2 FROM members 
       WHERE age_group = 'Adult' AND gender = 'Female'
       ORDER BY lname ASC";
-    }else{
+    }elseif (strcasecmp ($input , "January" ) == 0) {
       $return["option"] = "9";
+      $sql = "SELECT id, fname, lname, age_group, 
+                    dob_day, dob_month, email, 
+                    wed_anni_day, wed_anni_month,
+                    address, city, zipco, gender, status,
+                    type, contact1, contact2 FROM members 
+      WHERE dob_month = '1' 
+      ORDER BY dob_day ASC";
+    }elseif (strcasecmp ($input , "February" ) == 0) {
+      $return["option"] = "9";
+      $sql = "SELECT id, fname, lname, age_group, 
+                    dob_day, dob_month, email, 
+                    wed_anni_day, wed_anni_month,
+                    address, city, zipco, gender, status,
+                    type, contact1, contact2 FROM members 
+      WHERE dob_month = '2' 
+      ORDER BY dob_day ASC";
+    }elseif (strcasecmp ($input , "March" ) == 0) {
+      $return["option"] = "9";
+      $sql = "SELECT id, fname, lname, age_group, 
+                    dob_day, dob_month, email, 
+                    wed_anni_day, wed_anni_month,
+                    address, city, zipco, gender, status,
+                    type, contact1, contact2 FROM members 
+      WHERE dob_month = '3' 
+      ORDER BY dob_day ASC";
+    }elseif (strcasecmp ($input , "April" ) == 0) {
+      $return["option"] = "9";
+      $sql = "SELECT id, fname, lname, age_group, 
+                    dob_day, dob_month, email, 
+                    wed_anni_day, wed_anni_month,
+                    address, city, zipco, gender, status,
+                    type, contact1, contact2 FROM members 
+      WHERE dob_month = '4' 
+      ORDER BY dob_day ASC";
+    }elseif (strcasecmp ($input , "May" ) == 0) {
+      $return["option"] = "9";
+      $sql = "SELECT id, fname, lname, age_group, 
+                    dob_day, dob_month, email, 
+                    wed_anni_day, wed_anni_month,
+                    address, city, zipco, gender, status,
+                    type, contact1, contact2 FROM members 
+      WHERE dob_month = '5' 
+      ORDER BY dob_day ASC";
+    }elseif (strcasecmp ($input , "June" ) == 0) {
+      $return["option"] = "9";
+      $sql = "SELECT id, fname, lname, age_group, 
+                    dob_day, dob_month, email, 
+                    wed_anni_day, wed_anni_month,
+                    address, city, zipco, gender, status,
+                    type, contact1, contact2 FROM members 
+      WHERE dob_month = '6' 
+      ORDER BY dob_day ASC";
+    }elseif (strcasecmp ($input , "July" ) == 0) {
+      $return["option"] = "9";
+      $sql = "SELECT id, fname, lname, age_group, 
+                    dob_day, dob_month, email, 
+                    wed_anni_day, wed_anni_month,
+                    address, city, zipco, gender, status,
+                    type, contact1, contact2 FROM members 
+      WHERE dob_month = '7' 
+      ORDER BY dob_day ASC";
+    }elseif (strcasecmp ($input , "August" ) == 0) {
+      $return["option"] = "9";
+      $sql = "SELECT id, fname, lname, age_group, 
+                    dob_day, dob_month, email, 
+                    wed_anni_day, wed_anni_month,
+                    address, city, zipco, gender, status,
+                    type, contact1, contact2 FROM members 
+      WHERE dob_month = '8' 
+      ORDER BY dob_day ASC";
+    }elseif (strcasecmp ($input , "September" ) == 0) {
+      $return["option"] = "9";
+      $sql = "SELECT id, fname, lname, age_group, 
+                    dob_day, dob_month, email, 
+                    wed_anni_day, wed_anni_month,
+                    address, city, zipco, gender, status,
+                    type, contact1, contact2 FROM members 
+      WHERE dob_month = '9' 
+      ORDER BY dob_day ASC";
+    }elseif (strcasecmp ($input , "October" ) == 0) {
+      $return["option"] = "9";
+      $sql = "SELECT id, fname, lname, age_group, 
+                    dob_day, dob_month, email, 
+                    wed_anni_day, wed_anni_month,
+                    address, city, zipco, gender, status,
+                    type, contact1, contact2 FROM members 
+      WHERE dob_month = '10' 
+      ORDER BY dob_day ASC";
+    }elseif (strcasecmp ($input , "November" ) == 0) {
+      $return["option"] = "9";
+      $sql = "SELECT id, fname, lname, age_group, 
+                    dob_day, dob_month, email, 
+                    wed_anni_day, wed_anni_month,
+                    address, city, zipco, gender, status,
+                    type, contact1, contact2 FROM members 
+      WHERE dob_month = '11' 
+      ORDER BY dob_day ASC";
+    }elseif (strcasecmp ($input , "December" ) == 0) {
+      $return["option"] = "9";
+      $sql = "SELECT id, fname, lname, age_group, 
+                    dob_day, dob_month, email, 
+                    wed_anni_day, wed_anni_month,
+                    address, city, zipco, gender, status,
+                    type, contact1, contact2 FROM members 
+      WHERE dob_month = '12' 
+      ORDER BY dob_day ASC";
+    }else{
+      $return["option"] = "10";
       $sql ="SELECT id, fname, lname, age_group, 
                     dob_day, dob_month, email, 
                     wed_anni_day, wed_anni_month,
@@ -138,18 +247,23 @@ function test_function(){
           // output data of each row
           $table = $table .  "<table style = 'margin-top:40px; margin-left:50px; width:100%'>";
           $table = $table . "<tr><th>Name</th> <th>Age Group</th> <th>D.O.B.</th></tr>";
-          while($row = $result->fetch_assoc()) {
+          while($row = $result->fetch_assoc()){
             $table = $table . "<tr>";
+            
+            $dateObj   = DateTime::createFromFormat('!m', (int)$row['dob_month'] );
+            $monthName = $dateObj->format('F');
+
             $table = $table . "<td style='width:110px;border:1px solid black; padding-left:5px;'>". 
-                  $row["fname"]. " " . $row["lname"]. 
+                  $row["lname"]. " " . $row["fname"]. 
                   "</td>".
                   "<td style='width:110px;border:1px solid black; padding-left:5px;'>" . 
                   $row["age_group"] .
                   "</td>".
                   "<td style='width:110px;border:1px solid black; padding-left:5px;'>" . 
-                  $row["dob_day"] . "/" . $row["dob_month"]. 
+                  $row["dob_day"] . "/" . $monthName. 
                   "</td>".
                   "<td style='width:5px;border:0px solid black;margin-left:0px; padding-left:5px; padding:3px;'>
+                  <a id=". "'member_". $row["id"]."'".">
                   <button
                   id=". "'". $row['id'] ."'"." 
                   type='button' 
@@ -157,8 +271,8 @@ function test_function(){
                   data-toggle='modal' 
                   data-target='#GSCCModal'
                   data-id=". "'". $row['id'] ."'"."
-                  data-fname=". "'". $row['fname'] ."'"."
-                  data-lname=". "'".$row['lname'] ."'"."
+                  data-lname=". "'". $row['lname'] ."'"."
+                  data-fname=". "'".$row['fname'] ."'"."
                   data-gender=". "'".$row['gender'] ."'"."
                   data-age_group=". "'".$row['age_group']."'" ."
                   data-status=". "'".$row['status'] ."'"."
@@ -174,6 +288,14 @@ function test_function(){
                   data-contact1=". "'".$row['contact1']."'" ."
                   data-contact2=". "'". $row['contact2'] ."'"."
                   class='btn btn-primary'>View Profile</button>
+                  </a>
+                  <a id=". "'member_". $row["id"]."'".">
+                  <button
+                  id=". "'". $row['id'] ."'"." 
+                  type='button' 
+                  onclick='deleteProfile(this)'
+                  class='btn btn-danger'>Delete Profile</button>
+                  </a>
                   </td>";
             $table = $table . "</tr>";
           }

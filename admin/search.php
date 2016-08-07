@@ -37,7 +37,15 @@
           } );
           $( "#ajax-loader" ).hide();
         }, false );
+
+        // $(document).ready(function(){
+        //   $("#params").hide();
+        //   $("#show").click(function(){
+        //     $("#params").toggle("slow");
+        //   });
+        // });
       </script>
+
       <style>
         #ajax-loader {
           width: 120px;
@@ -65,12 +73,28 @@
       
       <center>
         <h3>Search</h3>
+      </center>
+        <div style="position:relative; left:25%;">
+          You can search for: <br>
+          <div class="params">
+            <ul>
+            <li>Your name</li>
+            <li>A month</li>
+            <li>Men</li>
+            <li>Women</li>
+            <li>Members</li>
+            </ul>
+          </div>
+        </div>
+        <center>
         <form id = "search" class="form-inline" style="padding-top: 30px;" method="POST" action ="lookup.php">
           <div class="form-group">
-            <input type="text" style="width:500px;" class="form-control" name="search_input" placeholder="Type here..." required>
+            <input type="text" style="width:500px;" class="form-control" name="search_input" placeholder="Type here..." required autofocus>
           </div>
-          <button type="submit" class="btn btn-info">Submit</button>
+          <button type="submit" class="btn btn-info">Search</button>
         </form>
+        <a href="http://ayokunle.netsoc.ie/projects/KCD/members/index.html"><button class="btn btn-danger">Add New Member</button></a>
+        <a href="http://ayokunle.netsoc.ie/projects/KCD/admin/birthdays.php"><button class="btn btn-primary">View Birthdays</button></a>
         <div id="ajax-loader">
           <!--  -->
         </div>
@@ -102,6 +126,11 @@
             }
           }
         }
+      }
+
+      function deleteProfile (data) {
+        // body...
+        
       }
         // var elem = document.getElementById("mytext");
         // elem.value = "My default value";
@@ -172,15 +201,15 @@
                   <div class="col-sm-5"> 
                     <select name="dob_day" class="form-control" required>
                       <option value="" disabled selected>-- Day --</option>
-                      <option value="01">01</option>
-                      <option value="02">02</option>
-                      <option value="03">03</option>
-                      <option value="04">04</option>
-                      <option value="05">05</option>
-                      <option value="06">06</option>
-                      <option value="07">07</option>
-                      <option value="08">08</option>
-                      <option value="09">09</option>
+                      <option value="1">01</option>
+                      <option value="2">02</option>
+                      <option value="3">03</option>
+                      <option value="4">04</option>
+                      <option value="5">05</option>
+                      <option value="6">06</option>
+                      <option value="7">07</option>
+                      <option value="8">08</option>
+                      <option value="9">09</option>
                       <option value="10">10</option>
                       <option value="11">11</option>
                       <option value="12">12</option>
@@ -209,15 +238,15 @@
                   <div class="col-sm-5"> 
                     <select name="dob_month" class="form-control" required>
                       <option value="" disabled selected>-- Month --</option>
-                      <option value="01">January</option>
-                      <option value="02">February</option>
-                      <option value="03">March</option>
-                      <option value="04">April</option>
-                      <option value="05">May</option>
-                      <option value="06">June</option>
-                      <option value="07">July</option>
-                      <option value="08">August</option>
-                      <option value="09">September</option>
+                      <option value="1">January</option>
+                      <option value="2">February</option>
+                      <option value="3">March</option>
+                      <option value="4">April</option>
+                      <option value="5">May</option>
+                      <option value="6">June</option>
+                      <option value="7">July</option>
+                      <option value="8">August</option>
+                      <option value="9">September</option>
                       <option value="10">October</option>
                       <option value="11">November</option>
                       <option value="12">December</option>
@@ -230,15 +259,15 @@
                   <div class="col-sm-5"> 
                     <select name="wed_anni_day" class="form-control" >
                       <option value="" disabled selected>-- Please select --</option>
-                      <option value="01">01</option>
-                      <option value="02">02</option>
-                      <option value="03">03</option>
-                      <option value="04">04</option>
-                      <option value="05">05</option>
-                      <option value="06">06</option>
-                      <option value="07">07</option>
-                      <option value="08">08</option>
-                      <option value="09">09</option>
+                      <option value="1">01</option>
+                      <option value="2">02</option>
+                      <option value="3">03</option>
+                      <option value="4">04</option>
+                      <option value="5">05</option>
+                      <option value="6">06</option>
+                      <option value="7">07</option>
+                      <option value="8">08</option>
+                      <option value="9">09</option>
                       <option value="10">10</option>
                       <option value="11">11</option>
                       <option value="12">12</option>
@@ -266,15 +295,15 @@
                   <div class="col-sm-5"> 
                     <select name="wed_anni_month" class="form-control">
                       <option value="" disabled selected>-- Please select --</option>
-                      <option value="01">January</option>
-                      <option value="02">February</option>
-                      <option value="03">March</option>
-                      <option value="04">April</option>
-                      <option value="05">May</option>
-                      <option value="06">June</option>
-                      <option value="07">July</option>
-                      <option value="08">August</option>
-                      <option value="09">September</option>
+                      <option value="1">January</option>
+                      <option value="2">February</option>
+                      <option value="3">March</option>
+                      <option value="4">April</option>
+                      <option value="5">May</option>
+                      <option value="6">June</option>
+                      <option value="7">July</option>
+                      <option value="8">August</option>
+                      <option value="9">September</option>
                       <option value="10">October</option>
                       <option value="11">November</option>
                       <option value="12">December</option>
@@ -344,9 +373,9 @@
         </div>
       </div>
 
-      <div id="update-sub" class="modal fade" role="dialog">
+      <!-- <div id="update-sub" class="modal fade" role="dialog">
         <div class="modal-dialog">
-          <!-- Modal content-->
+           Modal content
           <div class="modal-content">
             <div class="modal-header">
               <button type="button" class="close" data-dismiss="modal">&times;</button>
@@ -359,7 +388,7 @@
             </div>
           </div>
         </div>
-      </div>
+      </div> -->
 
     </div>
 
@@ -397,7 +426,7 @@
           $.ajax({
             type: "POST",
             dataType: "json",
-            url: "lookup.php", //Relative or absolute path to response.php file
+            url: "lookup.php", 
             data: data,
             beforeSend: function(){
              // Handle the beforeSend event
@@ -406,7 +435,7 @@
             success: function(data) {
               $("#ajax-loader").slideUp();
               $("#result").html(
-                data["table"]
+                data["table"]   
                 );
               //alert("Form submitted successfully.\nReturned json: " + data["json"]);
             },
@@ -422,10 +451,16 @@
         $("#update").on('submit', function () {
           var data = {"action": "test"};
           data = $(this).serialize() + "&" + $.param(data);
+          console.log("data :" + data);
+          var data_arr = data.split("&");
+          // console.log("data_arr :" + data_arr[1].split("=")[1]);
+          // console.log("data_arr :" + data_arr[2].split("=")[1]);
+          var anchor = "#member_" + data_arr[0].split("=")[1];// decodeURIComponent(data_arr[2].split("=")[1]) + " " +data_arr[1].split("=")[1];
+          console.log("anchor:" + anchor);
           $.ajax({
             type: "POST",
             dataType: "text",
-            url: "update.php", //Relative or absolute path to response.php file
+            url: "update.php", 
             data: data,
             success: function(data) {
               
@@ -437,7 +472,7 @@
                 $.ajax({
                   type: "POST",
                   dataType: "json",
-                  url: "lookup.php", //Relative or absolute path to response.php file
+                  url: "lookup.php", 
                   data: data,
                   beforeSend: function(){
                     $("#ajax-loader").show();
@@ -457,6 +492,9 @@
                     console.log(error);
                   }
                 });
+                location.href = "#";
+                location.href = anchor;
+                //window.location.hash = anchor;
             },
             error: function(xhr, textStatus, error){
               console.log(xhr.statusText);

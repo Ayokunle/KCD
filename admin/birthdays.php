@@ -57,19 +57,23 @@
         </div>
         <button type="submit" class="btn btn-info">Submit</button>
       </form>
+      <a href="http://ayokunle.netsoc.ie/projects/KCD/members/index.html"><button class="btn btn-danger">Add New Member</button></a>
+      <a href="http://ayokunle.netsoc.ie/projects/KCD/admin/search.php"><button class="btn btn-primary">Search Members</button></a>
       </center>
 
       <?
-      ini_set('display_errors', 'On');
+      //ini_set('display_errors', 'On');
 
       $dob_month =  $_POST['dob_month'];
 
       if(!empty($_POST['dob_month'])) {
         //$con = mysqli_connect('50.87.144.163','rccgking_kcd','kingscourt','rccgking_KCD');
         $con = mysqli_connect('userdb.netsoc.tcd.ie','ayokunle','Ohqu1eed','u_ayokunle');
-        if (!$con) {
-          die('Could not connect: ' . mysqli_error($con));
+        if (mysqli_connect_errno())
+        {
+        echo "Failed to connect to MySQL: " . mysqli_connect_error();
         }
+        
         //mysqli_select_db($con,"rccgking_KCD");
         mysqli_select_db($con,"u_ayokunle");
         
@@ -77,6 +81,10 @@
         WHERE dob_month='$dob_month'
         ORDER BY dob_day ASC";
         $result = $con->query($sql);
+
+        $dateObj   = DateTime::createFromFormat('!m', $dob_month);
+        $monthName = $dateObj->format('F');
+        echo "<center> <h3> Month of $monthName </h3> </center>";
 
         echo "<center> <h3> Birthdays </h3> </center>";
         if ($result->num_rows > 0) {
@@ -87,11 +95,11 @@
           </tr>";
           while($row = $result->fetch_assoc()) {
             echo "<tr>";
-            echo "<td style='width:150px;border:1px solid black;'>". 
-                  $row["fname"]. " " . $row["lname"]. 
+            echo "<td style='width:150px;border:1px solid black; padding:10px;'>". 
+                  $row["lname"]. " " . $row["fname"]. 
                   "</td>".
-                  "<td style='width:150px;border:1px solid black;'>" . 
-                  $row["dob_day"] . "/" . $row["dob_month"]. 
+                  "<td style='width:150px;border:1px solid black; padding:10px;'>" . 
+                  $row["dob_day"] . "/" . $monthName. 
                   "</td>";
             echo "</tr>";
           }
@@ -114,11 +122,11 @@
           </tr>";
           while($row = $result->fetch_assoc()) {
           echo "<tr>";
-          echo "<td style='width:150px;border:1px solid black;'>".
+          echo "<td style='width:150px;border:1px solid black; padding:10px;'>".
                 $row["fname"]. " " . $row["lname"].
                 "</td>".
-                "<td style='width:150px; border:1px solid black;'>" . 
-                $row["wed_anni_day"] . "/" . $row["wed_anni_month"] .
+                "<td style='width:150px; border:1px solid black; padding:10px;'>" . 
+                $row["wed_anni_day"] . "/" . $monthName.
                 "</td>";
           echo "</tr>";
           }

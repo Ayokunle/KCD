@@ -109,6 +109,23 @@
 
                 </br>
                 
+                <a href="../admin/birthdays.php">
+                    <button class="btn btn-primary">
+                        <font size = "4px"> 
+                            View Birthdays
+                        </font>
+                    </button>
+                </a>
+                </br>
+
+                <a href="../admin/search.php">
+                    <button class="btn btn-warning">
+                        <font size = "4px"> 
+                            Search Members
+                        </font>
+                    </button>
+                </a>
+                </br>
                 <a href="http://www.rccgkingscourt.org/">
                     <button class="btn btn-info">
                         <font size = "4px"> 
